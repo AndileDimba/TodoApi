@@ -1,64 +1,56 @@
-// var builder = WebApplication.CreateBuilder(args);
-// var app = builder.Build();
-
-// app.MapGet("/", () => "Hello World! @ BBD");
-
-// app.MapGet("/home", () => "Thang is the best teacher of C#");
-
-// app.Run();
-
-// using System;
-// using System.Collections.Generic;
-// using System.Linq;
-// using System.Text;
-// using System.Threading.Tasks;
-// using System.Data.SqlClient;
-
-// namespace ConnectionToSQLServer
-// {
-//     class Program
-//     {
-//         static void Main(string[] args)
-//         {
-//             Console.WriteLine("Getting information");
-//             string dataSource = "ANDILED";
-//             string database = "ConstructionDB";
-//             string queryString = "SELECT * FROM dbo.ProjectStatus;";
-//             var connString = "Data Source=" + dataSource + ";Initial Catalog=" + database + ";User ID=user;Password=pass";
-//             var conn = new SqlConnection(connString);
-
-//             try
-//             {
-//                 conn.Open();
-//                 Console.WriteLine("Opened Connection....");
-
-//                 SqlCommand command = new SqlCommand(
-//             queryString, conn);
-//                 var reader = command.ExecuteReader();
-//                 while (reader.Read())
-//                 {
-//                     Console.WriteLine($"{reader["StatusType"]} | {reader["StatusDescr"]}");
-//                 }
-//                 Console.WriteLine("Open Connection Successful!");
-//                 conn.Close();
-//             }
-//             catch (Exception err)
-//             {
-//                 Console.WriteLine("Error is " + err.Message);
-//             }
-//             Console.Read();
-//         }
-//     }
-// }
-
-
 using static ConnectToSQLServer.Controllers.Controller;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-app.MapGet("/", () => new ConnectToSQLServer.Controllers.Controller().getProject());
+app.MapGet("/Create", () =>
+{
+    try
+    {
+        new ConnectToSQLServer.Controllers.Controller().getProject("INSERT INTO Interns(FirstName,LastName) VALUES('Lindo','DIMBA')");
+    }
+    catch (Exception err)
+    {
+        Console.WriteLine("Error is " + err.Message);
+    }
+});
 
-app.MapGet("/home", () => "Thang is the best teacher of C#");
+app.MapGet("/Read", string() =>
+{
+    string result = "";
+    try
+    {
+        result = new ConnectToSQLServer.Controllers.Controller().getProject("SELECT * FROM Interns");
+    }
+    catch (Exception err)
+    {
+        Console.WriteLine("Error is " + err.Message);
+    }
+    return result;
+});
+
+app.MapGet("/Update", () =>
+{
+    try
+    {
+        new ConnectToSQLServer.Controllers.Controller().getProject("UPDATE Interns SET FirstName='GOAT', LastName='Leo' WHERE InternID=18");
+    }
+    catch (Exception err)
+    {
+        Console.WriteLine("Error is " + err.Message);
+    }
+});
+
+app.MapGet("/Delete", () =>
+{
+    try
+    {
+        new ConnectToSQLServer.Controllers.Controller().getProject("DELETE FROM Interns WHERE InternID=18");
+    }
+    catch (Exception err)
+    {
+        Console.WriteLine("Error is " + err.Message);
+    }
+});
 
 app.Run();

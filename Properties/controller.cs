@@ -4,13 +4,18 @@ namespace ConnectToSQLServer.Controllers
     public class Controller
     {
         public Controller(){}
-        public string getProject()
+        public string getProject(string sql)
         {
             string res = "";
-            var reader = Connect.queryDatabase();
+          try{ 
+            var reader = Connect.queryDatabase(sql);
             while (reader.Read())
             {
-                res+= $"{reader["ProjectID"]}  {reader["ProjectLocation"]}\n";
+                res+= $"{reader["InternID"]} {reader["FirstName"]}  {reader["LastName"]}\n";
+            }
+            }
+            catch (Exception err){
+                Console.WriteLine("Error is " + err.Message);
             }
             return res;
         }
