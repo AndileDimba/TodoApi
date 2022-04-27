@@ -1,0 +1,19 @@
+{
+  "FilePath": "c:\\Users\\bbdnet2637\\Desktop\\BBD\\TodoApi\\TodoApi.csproj",
+  "Configuration": {
+    "ConfigurationName": "MVC-3.0",
+    "LanguageVersion": "6.0",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-3.0"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 900
+  },
+  "RootNamespace": "TodoApi",
+  "Documents": [],
+  "SerializationFormat": "0.2"
+}

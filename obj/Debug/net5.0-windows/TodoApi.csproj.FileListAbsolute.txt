@@ -1,0 +1,5 @@
+C:\Users\bbdnet2637\Desktop\BBD\TodoApi\obj\Debug\net5.0-windows\TodoApi.csproj.AssemblyReference.cache
+C:\Users\bbdnet2637\Desktop\BBD\TodoApi\obj\Debug\net5.0-windows\TodoApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bbdnet2637\Desktop\BBD\TodoApi\obj\Debug\net5.0-windows\TodoApi.AssemblyInfoInputs.cache
+C:\Users\bbdnet2637\Desktop\BBD\TodoApi\obj\Debug\net5.0-windows\TodoApi.AssemblyInfo.cs
+C:\Users\bbdnet2637\Desktop\BBD\TodoApi\obj\Debug\net5.0-windows\TodoApi.csproj.CoreCompileInputs.cache
