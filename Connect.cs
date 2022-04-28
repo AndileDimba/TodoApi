@@ -1,23 +1,23 @@
-using System.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+
 namespace ConnectToSQLServer
 {
-    public class Connect
+    public class InternContext : DbContext
     {
-        public static SqlConnection GetConnection()
+        public InternContext(DbContextOptions<InternContext> options) : base(options)
         {
-            var connection = new SqlConnection("Data Source=ANDILED;Initial Catalog=InternsDB;Trusted_Connection=True;");
-            connection.Open();
-            return connection;
-        }
-        public static SqlDataReader queryDatabase(string sql)
-        {
-            var connection = GetConnection();
-            connection = GetConnection();
-            var command = new SqlCommand(sql, connection);
-            return command.ExecuteReader();
 
         }
+        public DbSet<Intern> Interns { get; set; }
+    }
+
+    public class Intern
+    {
+        public int InternID { get; set; }
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
 
     }
-}
 
+}
