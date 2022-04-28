@@ -24,7 +24,7 @@ app.MapPut("/Update/{id}", async (InternContext db, int id, Intern intern) =>
     }
     db.Update(intern);
     await db.SaveChangesAsync();
-    return Results.NoContent();
+    return Results.Ok("Successfully Updated the User");
 });
 
 app.MapDelete("/Delete/{id}", async (InternContext db, int id) =>
@@ -35,7 +35,7 @@ app.MapDelete("/Delete/{id}", async (InternContext db, int id) =>
     }
     db.Interns.Remove(intern);
     await db.SaveChangesAsync();
-    return Results.NoContent();
+    return Results.Ok("Successfully deleted the User");
 });
 
 app.MapGet("/Calc", (InternContext db) =>
